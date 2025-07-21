@@ -4,37 +4,176 @@
     box-sizing: border-box;
 }
 
+:root {
+    --wfp-blue: #006FBA;
+    --wfp-dark-blue: #003A5D;
+    --wfp-orange: #E84E10;
+    --wfp-yellow: #FFC72C;
+    --text-dark: #333333;
+    --text-light: #666666;
+    --light-gray: #F5F5F5;
+    --white: #FFFFFF;
+}
+
 body {
     font-family: Arial, 'Segoe UI',sans-serif;
     background: #f0f0f0;
-    color: #141414;
+    color: var(--text-dark);
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    left: 0;
 }
 
 h1 {
     color: #293d50;
 }
 
+.logo {
+    background-color: var(--wfp-blue);
+}
 
+.logo-img {
+    height: 3.5rem;
+    width:4rem;    
+}
+
+/* Alert Bar */
+.top-bar {
+    background-color: var(--light-gray);
+    color: var(--white);
+    padding: 0.2rem;
+    text-align: center;
+    font-size: 0.875rem;
+    height: 2rem;
+}
+
+.top-bar a {
+    background-color: var(--wfp-orange);
+    color: var(--white);
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 0.3rem;
+    height: 100%;
+}
 /* Navbar section*/
 nav{
     display: flex;
     justify-content: space-between;
-    padding: 1rem 5%;
-    background: var(--dark-bg);
+    padding: .5rem 5%;
+    background: var(--wfp-blue);
+    position: relative;
 }
 
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 .nav-links {
     list-style: none;
-    display: flex;
+    display: inline-flex;
     gap: 2rem;
 }
 
 .nav-links a {
     text-decoration: none;
-    color: white;
+    color: var(--white);
     font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.3s ease;
 }
 
+/* Hero Section */
+.hero {
+    
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0, 0, 0, 0.5)),url('assets/images/hero.jpg');
+    background-size: cover;
+    /* height: 100vh; */min-height: 0100vh;
+    display: flex;
+    padding: 4rem 0;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--light-gray);
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.hero .in {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+/* Stats Section */
+.stats {
+    display: flex;
+    justify-content: space-around;
+    padding: 4rem 0;
+    background:var(--wfp-blue);
+    color:var(--white);
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Projects Grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    font-size: 26px;
+    cursor: pointer;
+    color: white;
+}
+
+/* Responsive nav for phone screens */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 4.5rem;
+        right: 0;
+        background-color:var(--wfp-blue);
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 1rem 0;
+    }
+}
 
 
 
