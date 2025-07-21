@@ -1,13 +1,40 @@
-*{
-    padding: 0;
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
+    font-family: Arial, 'Segoe UI',sans-serif;
     background: #f0f0f0;
+    color: #141414;
 }
+
 h1 {
     color: #293d50;
 }
+
+
+/* Navbar section*/
+nav{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 5%;
+    background: var(--dark-bg);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+}
+
+
+
+
