@@ -91,9 +91,9 @@ nav{
 /* Hero Section */
 .hero {
     
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0, 0, 0, 0.5)),url('assets/images/hero.jpg');
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(138, 126, 126, 0.5)),url('assets/images/hero.jpg');
     background-size: cover;
-    /* height: 100vh; */min-height: 0100vh;
+    height: 90vh; 
     display: flex;
     padding: 4rem 0;
     align-items: center;
@@ -108,22 +108,29 @@ nav{
     line-height: 1.2;
 }
 
-.hero .in {
+.in {
     font-size: 1.25rem;
     margin-bottom: 2rem;
 }
 
 /* Stats Section */
 .stats {
-    display: flex;
-    justify-content: space-around;
-    padding: 4rem 0;
+    padding: 3rem 0;
     background:var(--wfp-blue);
     color:var(--white);
+    text-align: center;
 }
 
-.stat-item {
+.stats .container {
+    display: inline-flex;
+    gap: 2rem;
     text-align: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.stat-item {
+    display: flex;
+    flex-direction: column;
 }
 
 .stat-number {
