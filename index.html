@@ -7,6 +7,7 @@
 
     <title>WFP Project</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     
 </head>
@@ -60,14 +61,14 @@
         <section id="about" class="about-section">
             <div class="container">
                 <h2>Who are we</h2>
+
                 <div class="about-content">
                     <img src="assets/images/about.webp" alt="org pic">
+                    We are the largest humanitarian organization saving and changing lives worldwide.</h3>
+                    We bring life-saving relief in emergencies and use food assistance to build a pathway to peace, stability and prosperity for people recovering from conflict, disasters and the impacts of climate change.
+                    The World Food Programme (WFP) is the leading humanitarian organization saving and changing lives, delivering food assistance in emergencies and working with communities to improve nutrition and build resilience.
                 </div>
-                <div class="text">
-                    <p>
-                        The World Food Programme (WFP) is the leading humanitarian organization saving and changing lives, delivering food assistance in emergencies and working with communities to improve nutrition and build resilience.
-                    </p>
-                </div>
+                
             </div>
         </section> 
         
@@ -140,44 +141,82 @@
             </div>
         </section>
 
-        <!-- Emergency Section -->
-        <section class="emergency-section">
+        <section id="contact" class="contact-section">
             <div class="container">
-                <h2>Global Hunger Emergencies</h2>
-                <div class="emergency-grid">
-                    <div class="emergency-card">
-                        <div class="location">Yemen</div>
-                        <h3>Yemen Crisis</h3>
-                        <p>20 million people face acute food insecurity</p>
-                        <a href="#" class="btn btn-small">Help Now</a>
+                <h2>Contact us</h2>
+
+                <div class="contact-wrapper">
+                <!-- Contact Form -->
+                <form id="contactForm" class="contact-form">
+                    <input type="text" name="name" placeholder="Full name" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="text" name="subject" placeholder="Subject" required>
+                    <textarea name="message" placeholder="Write your message here..." required></textarea>
+                    <button type="submit">Send</button>
+                </form>
+
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <h3> Contact Info</h3>
+                    <p>Via Cesare Giulio Viola, 68, 00148 Rome RM, Italy</p>
+                    <p>📞 +28 87 123 456</p>
+                    <p>✉️ info@wfp.org</p>
+
+                    <div class="social-links">
+                        <a href="#" target="_blank"><i class="fab fa-instigram"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
                     </div>
-                    <div class="emergency-card">
-                        <div class="location">Ukraine</div>
-                        <h3>Ukraine Response</h3>
-                        <p>Supporting displaced families</p>
-                        <a href="#" class="btn btn-small">Help Now</a>
-                    </div>
-                    <div class="emergency-card">
-                        <div class="location">Horn of Africa</div>
-                        <h3>Drought Crisis</h3>
-                        <p>22 million at risk of starvation</p>
-                        <a href="#" class="btn btn-small">Help Now</a>
+
+                    <!-- Map -->
+                    <div class="map-container">
+                    <iframe
+                        src="https://maps.google.com/maps?q=Sana%20Yemen&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                        frameborder="0" allowfullscreen>
+                    </iframe>
                     </div>
                 </div>
+                </div>
             </div>
-        </section>
-
-        <!-- Newsletter Section -->
-        <section class="newsletter">
-            <h2>Subscribe in our Newsletter</h2>
-            <form id="newsletter-form">
-                <input type="email" placeholder="Enter Your Email" required>
-                <button type="submit">Subscribe</button>
-            </form>
-        </section>
+            </section>
     </main>
 
     <!-- footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-about">
+                <img src="assets/images/wfp-logo.svg" alt="WFP Logo" class="footer-logo" />
+                <p>Working to end hunger and deliver food assistance where it's needed most.</p>
+            </div>
+
+            <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p>Email: info@wfp.org</p>
+                <p>Phone: +1 234 567 890</p>
+                <p>Address: Rome, Italy</p>
+            </div>
+        </div>
+        <div class="social-links">
+            <a href="#" target="_blank"><i class="fab fa-instigram"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 World Food Programme. All rights reserved.</p>
+        </div>
+</footer>
 
     
     <script src="js/main.js"></script>
