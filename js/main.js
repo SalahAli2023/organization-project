@@ -12,19 +12,11 @@ window.addEventListener('DOMContentLoaded', () => {
     });
     
     animateStats();
-    loadProjects();
 });
-
-
-
 
 toggleBtn.addEventListener("click", () => {
     navbar.classList.toggle("open");
 });
-
-// document.getElementById("hamburger").addEventListener("click", function () {
-//     document.getElementById("nav-links").classList.toggle("show");
-// });
 
 // Animate Stats Counter
 function animateStats() {
@@ -45,27 +37,6 @@ function animateStats() {
     });
 }
 
-// Load Projects Dynamically
-function loadProjects() {
-    const projectsGrid = document.querySelector('.projects-grid');
-    
-    // Example Projects Data
-    const projects = [
-        {title: "Food for every one project", location: "Yemen"},
-        {title: "Clear Water", location: "Somalia"}
-    ];
-
-    projects.forEach(project => {
-        const projectCard = document.createElement('div');
-        projectCard.className = 'project-card';
-        projectCard.innerHTML = `
-            <h3>${project.title}</h3>
-            <p>${project.location}</p>
-            <button>More..</button>
-        `;
-        projectsGrid.appendChild(projectCard);
-    });
-}
 
 
 
