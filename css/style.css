@@ -5,7 +5,7 @@
 }
 
 :root {
-    --wfp-blue: #006FBA;
+    --wfp-blue: #007DBC;
     --wfp-dark-blue: #003A5D;
     --wfp-orange: #E84E10;
     --wfp-yellow: #FFC72C;
@@ -13,6 +13,7 @@
     --text-light: #666666;
     --light-gray: #F5F5F5;
     --white: #FFFFFF;
+    --font-main: 'Open Sans', sans-serif;
 }
 
 body {
@@ -39,7 +40,8 @@ h1 {
 
 .logo-img {
     height: 3.5rem;
-    width:4rem;    
+    width:4rem;
+    display: block;    
 }
 
 /* Alert Bar */
@@ -125,7 +127,7 @@ nav{
     display: inline-flex;
     gap: 2rem;
     text-align: center;
-    justify-content: center;
+    justify-content: space-between;
     flex-wrap: wrap;
 }
 .stat-item {
@@ -146,6 +148,53 @@ nav{
     gap: 2rem;
     padding: 2rem;
 }
+
+/* Emergency Section */
+.emergency-section {
+    padding: 4rem 0;
+}
+
+.emergency-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--wfp-dark-blue);
+}
+
+.emergency-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.emergency-card {
+    background-color: var(--light-gray);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    padding: 1.5rem;
+}
+
+.emergency-card:hover {
+    transform: translateY(-5px);
+}
+
+.emergency-card .location {
+    color: var(--wfp-orange);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.emergency-card h3 {
+    margin-bottom: 0.5rem;
+    color: var(--wfp-dark-blue);
+}
+
+.emergency-card p {
+    margin-bottom: 1rem;
+    color: var(--text-light);
+}
+
+
 
 
 /* Hamburger Menu */
