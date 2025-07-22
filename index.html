@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Redesigned WFP Website - Responsive and Accessible" />
+
     <title>WFP Project</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
@@ -11,44 +13,72 @@
 <body>
 
     <!-- Header -->
-    <header>
+    <header class="navbar">
             <!-- Top Alert btn -->
         <div class="top-bar">
             <!-- <a href="#" >Donate now</a> -->
-        </div>
-
-        <nav class="navbar">
-            <div class="container">
-                <div style="display: flex; align-items: center;" >
-                    <a href="#" class="logo-img">
-                        <img src="assets/images/wfp-logo.svg" alt="WFP Logo" class="logo">
-                    </a>
-                    <span>WFP<span style="color: #f9da4f;">Organization</span></span>
-                </div>
-                <!-- Hamburger Menu -->
-                <div class="hamburger" id="hamburger">
-                    ☰
-                </div>
-                <ul class="nav-links" id="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <a href="#" class="btn btn-primary">Donate</a>
-                </ul>
+        </div>        
+        <div class="container">
+            <div style="display: flex; align-items: center;" >
+                <a href="#" class="logo-img">
+                    <img src="assets/images/wfp-logo.svg" alt="WFP Logo" class="logo">
+                </a>
+                <span>WFP<span style="color: #d78408;">Organization</span></span>
             </div>
+            
+            <!-- Hamburger Menu -->
+            <button class="menu-toggle" aria-label="Toggle navigation">
+                <span class="icon-open">&#9776;</span> <!-- ☰ -->
+                <span class="icon-close">✕</span> <!-- ✕ -->
+            </button>
+
+            <!-- <div class="hamburger" id="hamburger">☰</div> -->
+            <nav class="nav-menu">
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                
+            </ul>
         </nav>
+    </div>
     </header>
 
     <main>
         <!-- Hero Section -->
         <section class="hero" id="home">
             <div class="container">
-                <div class="hero-content">
-                    <h1>Saving Lives Changing Lives</h1>
-                    <p class="in">UN report: Hunger worsening in 13 hotspots, starvation imminent in five.</p>
-                    <button class="cta-button">Donate Now</button>
-                    <button class="cta-button">Learn More</button>
+                <h1>Saving Lives Changing Lives</h1>
+                <p >UN report: Hunger worsening in 13 hotspots, starvation imminent in five.</p>
+                <a href="#" class="btn-secondary">Learn More</a>
+                <a href="#" class="btn-primary">Donate Now</a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section about">
+            <div class="container">
+                <h2>Who are we</h2>
+                <p>
+                    The World Food Programme (WFP) is the leading humanitarian organization saving and changing lives, delivering food assistance in emergencies and working with communities to improve nutrition and build resilience.
+                </p>
+            </div>
+        </section>
+
+        <!-- Featured Projects Section -->
+        <section id="projects" class="section projects">
+            <div class="container">
+                <h2>Our Projects</h2>
+                <div class="project-grid">
+                <div class="project-card">
+                    <h3>Food Security Project</h3>
+                    <p>Supporting needy families with basic food in conflict-affected areas.</p>
+                </div>
+                <div class="project-card">
+                    <h3>School feeding program</h3>
+                    <p>Provide school meals for children to improve education and nutrition together.</p>
+                </div>
                 </div>
             </div>
         </section>
@@ -98,13 +128,6 @@
             </div>
         </section>
 
-        <!-- Featured Projects Section -->
-        <section class="projects" id="projects">
-            <h2>Our Projects</h2>
-            <div class="projects-grid">
-            </div>
-        </section>
-
         <!-- Newsletter Section -->
         <section class="newsletter">
             <h2>Subscribe in our Newsletter</h2>
@@ -116,7 +139,6 @@
     </main>
 
     <!-- footer -->
-     
 
     
     <script src="js/main.js"></script>

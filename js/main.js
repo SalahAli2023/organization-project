@@ -1,9 +1,30 @@
 console.log("بسم الله نبدأ");
 
-// Responsive navbar toggle
-document.getElementById("hamburger").addEventListener("click", function () {
-    document.getElementById("nav-links").classList.toggle("show");
+// Initialize Functions when page loads
+window.addEventListener('DOMContentLoaded', () => {
+    
+    //DOM ELEMENT
+    const toggleBtn = document.querySelector(".menu-toggle");
+    const navbar = document.querySelector(".navbar");
+
+    toggleBtn.addEventListener("click", () => {
+        navbar.classList.toggle("open");
+    });
+    
+    animateStats();
+    loadProjects();
 });
+
+
+
+
+toggleBtn.addEventListener("click", () => {
+    navbar.classList.toggle("open");
+});
+
+// document.getElementById("hamburger").addEventListener("click", function () {
+//     document.getElementById("nav-links").classList.toggle("show");
+// });
 
 // Animate Stats Counter
 function animateStats() {
@@ -46,11 +67,7 @@ function loadProjects() {
     });
 }
 
-// Initialize Functions when page loads
-window.addEventListener('DOMContentLoaded', () => {
-    animateStats();
-    loadProjects();
-});
+
 
 
 
