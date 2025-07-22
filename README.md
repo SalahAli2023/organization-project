@@ -1,5 +1,4 @@
 # organization-project | WFP
- | منظمة إنسانية  
 
 ## Features  
 -  Responsive Design  
