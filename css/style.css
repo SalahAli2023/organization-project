@@ -140,9 +140,9 @@ display: inline;
 }
 
 .hero .container{
-    align-items: end;
-    padding-top: 50vh;
-    bottom: 1px;
+    /* align-items: end; */
+    padding-top: 40vh;
+    /* bottom: 2px; */
 }
 .hero-content{
 /* margin-left: 50px; */
@@ -408,7 +408,6 @@ display: inline;
 
 .footer-container {
     display: flex;
-    /* flex-direction: column; */
     gap: 2rem;
     max-width: 1200px;
     margin: 0 auto;
