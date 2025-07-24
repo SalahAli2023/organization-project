@@ -9,11 +9,17 @@ const savedTheme = localStorage.getItem("theme");
 // Initialize Functions when page loads
 window.addEventListener('DOMContentLoaded', () => {
 
+    loading();
     animateStats();
     navbarToggle();
     darkMode();
+    formValidation();
+    moveToUp();
 
 });
+
+
+
 
 // navbarToggle
 function navbarToggle(){
@@ -58,6 +64,36 @@ function animateStats() {
         } else {
             counter.innerText = target + '+';
         }
+    });
+}
+
+//Button Move Up
+function moveToUp(){
+    const backToTopBtn = document.createElement('button');
+    backToTopBtn.innerHTML = '↑';
+    backToTopBtn.classList.add('back-to-top');
+    document.body.appendChild(backToTopBtn);
+
+    window.addEventListener('scroll', () => {
+        backToTopBtn.style.display = (window.scrollY > 300) ? 'block' : 'none';
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+
+
+
+
+
+
+function loading(){
+    window.addEventListener('load', () => {
+        document.querySelector('.loader').style.opacity = 0;
+        setTimeout(() => {
+            document.querySelector('.loader').style.display = 'none';
+        }, 500);
     });
 }
 
