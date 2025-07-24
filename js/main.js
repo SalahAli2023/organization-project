@@ -13,7 +13,7 @@ window.addEventListener('DOMContentLoaded', () => {
     animateStats();
     navbarToggle();
     darkMode();
-    formValidation();
+   // formValidation();
     moveToUp();
 
 });
@@ -83,11 +83,7 @@ function moveToUp(){
     });
 }
 
-
-
-
-
-
+// For loading
 function loading(){
     window.addEventListener('load', () => {
         document.querySelector('.loader').style.opacity = 0;
@@ -97,6 +93,87 @@ function loading(){
     });
 }
 
+function formValidation(){
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        let isValid = true;
+
+        // Reset errors
+        document.querySelectorAll('.error-message').forEach(el => {
+            el.style.display = 'none';
+        });
+
+        // Validate Name
+        const name = document.getElementById('name').value;
+        if (!name || name.length < 3) {
+            document.getElementById('nameError').textContent = 'name must be more than 3 letters';
+            document.getElementById('nameError').style.display = 'block';
+            isValid = false;
+        }
+
+        // Validate Email
+        const email = document.getElementById('email').value;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            document.getElementById('emailError').textContent = 'invalid email';
+            document.getElementById('emailError').style.display = 'block';
+            isValid = false;
+        }
+
+        // Validate Subject
+        const subject = document.getElementById('subject').value;
+        if (!subject || subject.length < 5) {
+            document.getElementById('subjectError').textContent = 'subject is so short';
+            document.getElementById('subjectError').style.display = 'block';
+            isValid = false;
+        }
+
+        // Validate Message
+        const message = document.getElementById('message').value;
+        if (!message || message.length < 10) {
+            document.getElementById('messageError').textContent = ' the message is must be more than 10 letters';
+            document.getElementById('messageError').style.display = 'block';
+            isValid = false;
+        }
+
+        // If valid, submit form
+        if (isValid) {
+            // Simulate form submission
+            const submitBtn = document.querySelector('.submit-btn');
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                alert('your message is sent successfully');
+                this.reset();
+                submitBtn.textContent = 'Send';
+                submitBtn.disabled = false;
+            }, 1500);
+        }
+    });
+
+    //when writing
+    document.getElementById('email').addEventListener('input', function() {
+        if (this.value.length > 0) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(this.value)) {
+                document.getElementById('emailError').textContent = 'invalid email';
+                document.getElementById('emailError').style.display = 'block';
+            } else {
+                document.getElementById('emailError').style.display = 'none';
+            }
+        }
+    });
+}
+
+//Active projects cards 
+document.querySelectorAll('.project-card').forEach(card => {
+    card.addEventListener('click', (e) => {
+        if (!e.target.classList.contains('btn')) {
+            window.location.href = 'project-details.html'; // 
+        }
+    });
+});
 
 
 
