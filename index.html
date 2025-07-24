@@ -25,11 +25,12 @@
                     <span class="brand">WFP<span style="color: #d78408;">Organization</span></span>
                 </h2>
             </div>
-             <!-- Toggle Dark Mode  -->
+            <!-- Toggle Dark Mode  -->
             <label class="theme-switch">
                 <input type="checkbox" id="theme-toggle">
                 <span class="slider"></span>
-            </label>         
+            </label>  
+            
             <!-- Hamburger Menu -->
             <button class="menu-toggle" aria-label="Toggle navigation">
                 <span class="icon-open">&#9776;</span> <!-- ☰ -->
@@ -145,44 +146,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- Bonus Modal -->
-    <div id="bonusModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Add Bonus</h2>
-            <div class="form-group">
-                <label for="bonusPercentage">Bonus Percentage</label>
-                <input type="number" id="bonusPercentage" placeholder="Enter percentage" min="0" max="100">
-                <div id="bonusErrorMsg" class="error">Please enter a valid percentage (0-100)</div>
-            </div>
-            <button id="applyBonusBtn">Apply Bonus</button>
-        </div>
-    </div>
-    
-        <div class="donation-form">
-            <form id="donateForm">
-                <div class="form-group">
-                <label for="amount">amount4 (USD)*</label>
-                <input type="number" id="amount" min="1" step="1" required>
-                <div class="error-message" id="amountError"></div>
-                </div>
-                
-                <div class="form-group">
-                <label for="payment">payment*</label>
-                <select id="payment" required>
-                    <option value="">-- select --</option>
-                    <option value="visa">Visa</option>
-                    <option value="mastercard">Mastercard</option>
-                    <option value="paypal">PayPal</option>
-                </select>
-                <div class="error-message" id="paymentError"></div>
-                </div>
-                
-                <button type="submit" class="btn btn-primary"> donate now</button>
-            </form>
-        </div>
-
     </main>
 
     <!-- footer -->
