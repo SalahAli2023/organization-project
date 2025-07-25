@@ -2,7 +2,8 @@ console.log("بسم الله نبدأ");
 
 //DOM ELEMENT
 const toggleBtn = document.querySelector(".menu-toggle");
-const navbar = document.querySelector(".navbar");
+// const navbar = document.querySelector(".navbar");
+const navLinks = document.querySelector(".nav-links");
 const themeToggle = document.getElementById("theme-toggle");
 const savedTheme = localStorage.getItem("theme");
     
@@ -23,9 +24,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
 // navbarToggle
 function navbarToggle(){
-    toggleBtn.addEventListener("click", () => {
-        navbar.classList.toggle("open");
-    });
+    if(toggleBtn && navLinks){
+        toggleBtn.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+        });
+    }
 }
 
 //darkMode
