@@ -2,10 +2,33 @@ console.log("بسم الله نبدأ");
 
 //DOM ELEMENT
 const toggleBtn = document.querySelector(".menu-toggle");
-// const navbar = document.querySelector(".navbar");
 const navLinks = document.querySelector(".nav-links");
+
 const themeToggle = document.getElementById("theme-toggle");
 const savedTheme = localStorage.getItem("theme");
+
+const newsletterForm = document.querySelector('.newsletter-form');
+
+const contactForm=document.getElementById('contactForm');
+const nameInput = document.getElementById('name');
+const email = document.getElementById('email');
+const subject = document.getElementById('subject');
+const message = document.getElementById('message');
+
+
+// ErrorMsg elements
+const errorMessage = document.querySelectorAll('.error-message');
+const nameError= document.getElementById('nameError');
+const emailError=document.getElementById('emailError');
+const subjectError= document.getElementById('subjectError');
+const messageError =document.getElementById('messageError');
+
+
+// Regular expressions for validation
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const nameRegex = /^[a-zA-Z\s]{3,60}$/;
+const subjectRegex = /^[a-zA-Z\s]{5,350}$/;
+
     
 // Initialize Functions when page loads
 window.addEventListener('DOMContentLoaded', () => {
@@ -14,15 +37,15 @@ window.addEventListener('DOMContentLoaded', () => {
     animateStats();
     navbarToggle();
     darkMode();
-   // formValidation();
+    formValidation();
     moveToUp();
+    subscribeByNewsletterForm();
 
 });
 
+    formValidation();
 
-
-
-// navbarToggle
+// nav bar Toggle
 function navbarToggle(){
     if(toggleBtn && navLinks){
         toggleBtn.addEventListener("click", () => {
@@ -31,7 +54,7 @@ function navbarToggle(){
     }
 }
 
-//darkMode
+//dark Mode
 function darkMode(){
     if (localStorage.getItem('theme') === 'dark') {
         document.body.classList.add('dark-mode');
@@ -97,50 +120,54 @@ function loading(){
 }
 
 function formValidation(){
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        let isValid = true;
+    
+    contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            let isValid = true;
 
-        // Reset errors
-        document.querySelectorAll('.error-message').forEach(el => {
+            // Reset errors
+            errorMessage.forEach(el => {
             el.style.display = 'none';
         });
 
         // Validate Name
-        const name = document.getElementById('name').value;
-        if (!name || name.length < 3) {
-            document.getElementById('nameError').textContent = 'name must be more than 3 letters';
-            document.getElementById('nameError').style.display = 'block';
-            isValid = false;
-        }
+        if (!nameRegex.test(nameInput.value.trim()))
+            {
+                nameError.innerText = 'Please enter a valid name (letters only)';
+                nameError.style.display = 'block';
+                isValid = false;
+            }
+        else if(!nameInput.value.trim()) 
+            {
+                nameError.textContent = 'name must be more than 3 letters';
+                nameError.style.display = 'block';
+                isValid = false;
+            }
 
         // Validate Email
-        const email = document.getElementById('email').value;
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            document.getElementById('emailError').textContent = 'invalid email';
-            document.getElementById('emailError').style.display = 'block';
+        if (!emailRegex.test(email.value.trim())) {
+            emailError.textContent = 'invalid email';
+            emailError.style.display = 'block';
             isValid = false;
         }
 
         // Validate Subject
-        const subject = document.getElementById('subject').value;
-        if (!subject || subject.length < 5) {
-            document.getElementById('subjectError').textContent = 'subject is so short';
-            document.getElementById('subjectError').style.display = 'block';
+        if (!subjectRegex.test(subject.value.trim())) {
+            subjectError.textContent = 'subject is so short, please enter more then 5 letter';
+            subjectError.style.display = 'block';
             isValid = false;
         }
 
         // Validate Message
-        const message = document.getElementById('message').value;
         if (!message || message.length < 10) {
-            document.getElementById('messageError').textContent = ' the message is must be more than 10 letters';
-            document.getElementById('messageError').style.display = 'block';
+            messageError.textContent = ' the message is must be more than 10 letters';
+            messageError.style.display = 'block';
             isValid = false;
         }
 
         // If valid, submit form
         if (isValid) {
+            alert('your message is sent successfully');
             // Simulate form submission
             const submitBtn = document.querySelector('.submit-btn');
             submitBtn.textContent = 'Sending...';
@@ -154,19 +181,41 @@ function formValidation(){
             }, 1500);
         }
     });
+    
+}
 
-    //when writing
-    document.getElementById('email').addEventListener('input', function() {
-        if (this.value.length > 0) {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(this.value)) {
-                document.getElementById('emailError').textContent = 'invalid email';
-                document.getElementById('emailError').style.display = 'block';
+   
+
+    
+    // Newsletter Form
+
+function subscribeByNewsletterForm(){
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input').value;
+            
+            if (email && email.includes('@')) {
+                alert('Thank you for subscribing!');
+                this.querySelector('input').value = '';
             } else {
-                document.getElementById('emailError').style.display = 'none';
+                alert('Please enter a valid email address');
+            }
+
+             // when writing
+    email.addEventListener('input', function() {
+        if (this.value.length > 0) {
+            if (!emailRegex.test(this.value).trim()) {
+                emailError.textContent = 'invalid email';
+                emailError.style.display = 'block';
+            } else {
+                emailError.style.display = 'none';
             }
         }
     });
+        });
+    }
+
 }
 
 //Active projects cards 
