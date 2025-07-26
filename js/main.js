@@ -11,13 +11,13 @@ const newsletterForm = document.querySelector('.newsletter-form');
 
 const contactForm=document.getElementById('contactForm');
 const nameInput = document.getElementById('name');
-const email = document.getElementById('email');
+const emailInput = document.getElementById('email');
 const subject = document.getElementById('subject');
 const message = document.getElementById('message');
 
 
 // ErrorMsg elements
-const errorMessage = document.querySelectorAll('.error-message');
+const errorMessage = document.querySelectorAll('.errorMessage');
 const nameError= document.getElementById('nameError');
 const emailError=document.getElementById('emailError');
 const subjectError= document.getElementById('subjectError');
@@ -33,18 +33,18 @@ const messageRegex = /^[a-zA-Z\s]{10,350}$/;
     
 // Initialize Functions when page loads
 window.addEventListener('DOMContentLoaded', () => {
-
+    
+    
     loading();
     animateStats();
     navbarToggle();
     darkMode();
-    
     moveToUp();
-
+    contactForm.addEventListener('submit', handleFormSubmit);
 });
 
 subscribeByNewsletterForm();
-formValidation();
+
 
 // nav bar Toggle
 function navbarToggle(){
@@ -120,82 +120,6 @@ function loading(){
     });
 }
 
-function formValidation(){
-    contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            let isValid = true;
-
-            // Reset errors
-            errorMessage.forEach(el => {
-            el.style.display = 'none';
-        });
-
-        // Validate Name
-        if (!nameRegex.test(nameInput.value.trim()))
-            {
-                nameError.innerText = 'Please enter a valid name (letters only)';
-                nameError.style.display = 'block';
-                isValid = false;
-            }
-        else if(!nameInput.value.trim()) 
-            {
-                nameError.textContent = 'name must be more than 3 letters';
-                nameError.style.display = 'block';
-                isValid = false;
-            }
-
-        // Validate Email
-        if (!emailRegex.test(email.value.trim())) {
-            emailError.textContent = 'invalid email';
-            emailError.style.display = 'block';
-            isValid = false;
-        }
-
-        // Validate Subject
-        if (!subjectRegex.test(subject.value.trim())) {
-            subjectError.textContent = 'subject is so short, please enter more then 5 letter';
-            subjectError.style.display = 'block';
-            isValid = false;
-        }
-
-        // Validate Message
-        if (!message || message.length < 10) {
-            messageError.textContent = ' the message is must be more than 10 letters';
-            messageError.style.display = 'block';
-            isValid = false;
-        }
-
-        // If valid, submit form
-        if (isValid) {
-            alert('your message is sent successfully');
-            // Simulate form submission
-            const submitBtn = document.querySelector('.submit-btn');
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
-            
-            setTimeout(() => {
-                alert('your message is sent successfully');
-                this.reset();
-                submitBtn.textContent = 'Send';
-                submitBtn.disabled = false;
-            }, 1500);
-        }
-    });
-
-   // when writing
-    email.addEventListener('input', function() {
-        if (this.value.length > 0) {
-            if (!emailRegex.test(this.value).trim()) {
-                emailError.textContent = 'invalid email';
-                emailError.style.display = 'block';
-            } else {
-                emailError.style.display = 'none';
-            }
-        }
-    });
-}
-
-    
 
 function subscribeByNewsletterForm(){
     if (newsletterForm) {
@@ -222,6 +146,103 @@ document.querySelectorAll('.project-card').forEach(card => {
     });
 });
 
+function formValidation(){
+    let isValid = true;
+    // Validate Name
+    if (!nameInput.value.trim()) 
+        {
+            nameError.textContent = 'Name is required';
+            nameError.style.display = 'block';
+            isValid = false;
+        }
+    else if(!nameRegex.test(nameInput.value.trim()))
+        {
+            nameError.innerText = 'Please enter a valid name, it must be more than 3 letters';
+            nameError.style.display = 'block';
+            isValid = false;
+        }
+
+    // Validate Email
+    if (!emailInput.value.trim()) 
+        {
+            emailError.textContent = 'Email is required';
+            emailError.style.display = 'block';
+            isValid = false;
+        }
+    else if (!emailRegex.test(emailInput.value.trim()))
+    {
+        emailError.textContent = 'invalid email';
+        emailError.style.display = 'block';
+        isValid = false;
+    }
+
+    // Validate Subject
+    if  (!subject.value.trim()) 
+        {
+            subjectError.textContent = 'Subject is required';
+            subjectError.style.display = 'block';
+            isValid = false;
+        }
+    else if (!subjectRegex.test(subject.value.trim()))
+        {
+            subjectError.textContent = 'subject is so short, please enter more then 5 letter';
+            subjectError.style.display = 'block';
+            isValid = false;
+        }
+
+    // Validate Message
+    if  (!subject.value.trim()) 
+        {
+            messageError.textContent = 'Message is required';
+            message.style.display = 'block';
+            isValid = false;
+        }
+    else if (!messageRegex.test(message.value.trim())) {
+        messageError.textContent = 'the message is must be more than 10 letters';
+        messageError.style.display = 'block';
+        isValid = false;
+    }
+    return isValid;
+}
+
+function handleFormSubmit(e) {
+    e.preventDefault();
+
+    // Reset errors
+    errorMessage.forEach(el => {
+        el.style.display = 'none';
+    })
+
+    // Validate inputs
+    const isValid = formValidation();
+
+    // If valid, submit form
+    if (isValid) {
+        // Simulate form submission
+        const submitBtn = document.querySelector('.submit-btn');
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+        contactForm.reset()
+        setTimeout(() => {
+            alert('your message is sent successfully');
+            this.reset();
+            submitBtn.textContent = 'Send';
+            submitBtn.disabled = false;
+        }, 1500);
+    }
+}
+
+   // when writing
+    email.addEventListener('input', function() {
+        if (this.value.length > 0) {
+            if (!emailRegex.test(this.value).trim()) {
+                emailError.textContent = 'invalid email';
+                emailError.style.display = 'block';
+            } else {
+                emailError.style.display = 'none';
+            }
+        }
+    });
 
 
 
