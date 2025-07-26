@@ -28,6 +28,7 @@ const messageError =document.getElementById('messageError');
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const nameRegex = /^[a-zA-Z\s]{3,60}$/;
 const subjectRegex = /^[a-zA-Z\s]{5,350}$/;
+const messageRegex = /^[a-zA-Z\s]{10,350}$/;
 
     
 // Initialize Functions when page loads
@@ -37,12 +38,13 @@ window.addEventListener('DOMContentLoaded', () => {
     animateStats();
     navbarToggle();
     darkMode();
-    formValidation();
+    
     moveToUp();
-    subscribeByNewsletterForm();
 
 });
 
+subscribeByNewsletterForm();
+formValidation();
 
 // nav bar Toggle
 function navbarToggle(){
@@ -194,7 +196,6 @@ function formValidation(){
 }
 
     
-    // Newsletter Form
 
 function subscribeByNewsletterForm(){
     if (newsletterForm) {
