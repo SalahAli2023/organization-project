@@ -43,7 +43,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
 });
 
-    formValidation();
 
 // nav bar Toggle
 function navbarToggle(){
@@ -120,7 +119,6 @@ function loading(){
 }
 
 function formValidation(){
-    
     contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             let isValid = true;
@@ -181,10 +179,19 @@ function formValidation(){
             }, 1500);
         }
     });
-    
-}
 
-   
+   // when writing
+    email.addEventListener('input', function() {
+        if (this.value.length > 0) {
+            if (!emailRegex.test(this.value).trim()) {
+                emailError.textContent = 'invalid email';
+                emailError.style.display = 'block';
+            } else {
+                emailError.style.display = 'none';
+            }
+        }
+    });
+}
 
     
     // Newsletter Form
@@ -201,21 +208,8 @@ function subscribeByNewsletterForm(){
             } else {
                 alert('Please enter a valid email address');
             }
-
-             // when writing
-    email.addEventListener('input', function() {
-        if (this.value.length > 0) {
-            if (!emailRegex.test(this.value).trim()) {
-                emailError.textContent = 'invalid email';
-                emailError.style.display = 'block';
-            } else {
-                emailError.style.display = 'none';
-            }
-        }
-    });
         });
     }
-
 }
 
 //Active projects cards 
