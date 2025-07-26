@@ -191,10 +191,10 @@ function formValidation(){
         }
 
     // Validate Message
-    if  (!subject.value.trim()) 
+    if  (!message.value.trim()) 
         {
             messageError.textContent = 'Message is required';
-            message.style.display = 'block';
+            messageError.style.display = 'block';
             isValid = false;
         }
     else if (!messageRegex.test(message.value.trim())) {
